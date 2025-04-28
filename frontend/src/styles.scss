@@ -1,0 +1,171 @@
+@import './reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+// Variables
+$font-stack: 'Roboto', sans-serif;
+$border-radius: 8px;
+$upload-bg: #f9f9f9;
+$border-dashed: #ccc;
+$color-upload: #28a745;
+$color-search: #007bff;
+$overlay-bg: rgba(0, 0, 0, 0.7);
+$bg-image: url("E:/europe-7492984_1920.jpg"); // Đường dẫn đến ảnh nền toàn trang
+
+// Global styles
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+  font-weight: 300;
+  background-color: #f5f5f5;
+  background-size: cover;
+}
+
+h1 {
+  font-family: $font-stack;
+  font-weight: 500;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+// Gallery Masonry
+.gallery {
+  display: flex;
+  width: auto;
+
+  .gallery-column {
+    padding-left: 5px;
+    margin-top: 8px;
+    background-clip: padding-box;
+  }
+
+  .image-item {
+    margin-bottom: 16px;
+    text-align: center;
+
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: 0.3s;
+
+      &.blur {
+        filter: blur(8px);
+      }
+    }
+
+    p {
+      font-family: $font-stack;
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: #333333;
+      letter-spacing: 0.3px;
+      margin-top: 8px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    }
+  }
+}
+
+// Overlay styles
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+
+  .full-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #fff;
+  }
+
+  .btn-overlay-delete {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background 0.2s;
+
+    &:hover {
+      background: rgba(255,255,255,0.3);
+      color: #000;
+    }
+  }
+}
+
+/* TabBar styles */
+.tab-bar {
+  background: #212121;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: $font-stack;
+}
+
+.tab-bar .title {
+  font-family: $font-stack;
+  font-weight: 500;
+  font-size: 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.tab-bar button {
+  padding: 12px 20px;
+  background-color: transparent;
+  color: white;
+  font-family: $font-stack;
+  font-weight: 400;
+  border: 2px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.tab-bar button:hover {
+  background-color: white;
+  color: #212121;
+  transform: scale(1.1);
+}
+
+.tab-bar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tab-bar .btn-container {
+  display: flex;
+  gap: 20px;
+}
+
+.tab-bar button + button {
+  margin-left: 15px;
+}
+.tab-bar__title{
+  cursor: pointer;
+}
