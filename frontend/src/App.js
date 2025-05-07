@@ -16,7 +16,7 @@ function App() {
   const [searchMode, setSearchMode] = useState(false);
   const fileInputRef = useRef(null);
 
-  const isSensitive = label => ['Drawing', 'Hentai', 'Porn', 'Sexy'].includes(label);
+  const isSensitive = label => ['Hentai', 'Porn', 'Sexy'].includes(label);
 
   useEffect(() => {
     loadAllImages();
@@ -163,7 +163,7 @@ function App() {
         >
           {images.map(img => {
             const url = `http://localhost:5000${img.imageUrl}`;
-            const blurClass = isSensitive(img.nsfw.label) ? 'blur' : '';
+            const blurClass = isSensitive(img.nsfw.label || img.nsfw.probability * 100 >90) ? 'blur' : '';
             return (
               <div key={img._id} className="image-item">
                 <img
